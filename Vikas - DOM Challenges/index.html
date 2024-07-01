@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Scoped CSS Variables and JS</title>
     <link rel="icon" href="https://fav.farm/🔥" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main>
@@ -79,10 +80,31 @@
 
     const secondText = (addTextToPNodes[1].innerHTML =
       "Text for the second p tag");
-    console.log("addTextToPNodes", addTextToPNodes);
 
     const addThirdPTag = document
       .getElementById("boxy")
       .appendChild(document.createElement("p"));
+
+    const listItems = document.querySelectorAll(".list-item");
+    const addsublist = listItems[listItems.length - 1].insertAdjacentHTML(
+      "beforeend",
+      `
+         <ul>
+             <li>one </li>
+             <li>two </li>
+             <li>three </li>
+         </ul>
+     `
+    );
+
+    const list = document.querySelector(".list");
+
+    // creating a new element in DOM and adding classList
+    const paragraphGlow = document.createElement("p");
+    paragraphGlow.classList.add("glow");
+
+    //append p tag after our UL
+    list.insertAdjacentElement("afterend", paragraphGlow);
+    paragraphGlow.textContent = "This is a glowing paragraph";
   </script>
 </html>
