@@ -129,15 +129,46 @@
     // REMOVE A CARD WHEN ITS BUTTON IT CLICKED
     const cardBtns = document.querySelectorAll(".card__btn");
 
-    cardBtns.forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const card = this.closest(".card"); // this refers to the btn that was clocked, closest will find its nearest parent div being .card-container
-        console.log("card", card);
-        if (card) {
-          // if the card exists, then we remove it.
-          card.remove();
+    // cardBtns.forEach((btn) => {
+    //   btn.addEventListener("click", function () {
+    //     const card = this.closest(".card"); // this refers to the btn that was clocked, closest will find its nearest parent div being .card-container
+    //     console.log("card", card);
+    //     if (card) {
+    //       // if the card exists, then we remove it.
+    //       card.remove();
+    //     }
+    //   });
+    // });
+
+    // toggle the GLOW class on the card that is clicked
+    // cardBtns.forEach((btn) => {
+    //   btn.addEventListener("click", function () {
+    //     const card = this.closest(".card"); // this refers to the btn that was clocked, closest will find its nearest parent div being .card-container
+    //     card.classList.add("glow");
+    //   });
+    // });
+
+    // Change the event listener to the following. Change the title of all other cards to "Jealous 👀" when you click on a card’s button. (BONUS: Change the title of the card that was clicked to "I’m the greatest!").
+
+    const cards = document.querySelectorAll(".card");
+
+    function handleClick(e) {
+      const cardID = e.target.parentElement.id;
+
+      cards.forEach((card) => {
+        if (card.id !== cardID) {
+          return (card.querySelector(".card__heading").textContent = "Jealous");
+        }
+
+        if (card.id === cardID) {
+          return (card.querySelector(".card__heading").textContent =
+            "I'm the greatest!");
         }
       });
+    }
+
+    cardBtns.forEach((btn) => {
+      btn.addEventListener("click", handleClick);
     });
   </script>
 </html>
