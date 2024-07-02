@@ -106,5 +106,38 @@
     //append p tag after our UL
     list.insertAdjacentElement("afterend", paragraphGlow);
     paragraphGlow.textContent = "This is a glowing paragraph";
+
+    const testCardsQuerySelectorAll = document.querySelectorAll(".card");
+    console.log("testCardsQuerySelectorAll", testCardsQuerySelectorAll);
+
+    const newDiv = document.createElement("div");
+    paragraphGlow.insertAdjacentElement("afterend", newDiv);
+    newDiv.innerHTML = `<p><strong>New BOLD content</strong></p>`; // innerHTML lets you insert multiple tags if you want
+
+    // when clicking on the glowing paragraph , remove the glowing CSS class
+    paragraphGlow.addEventListener("click", () => {
+      paragraphGlow.classList.remove("glow");
+    });
+
+    // when clicking on the glowing paragraph , change color to red
+
+    paragraphGlow.addEventListener("click", () => {
+      paragraphGlow.classList.add("warning");
+      paragraphGlow.textContent = "WARNING, WARNING , WARNING!";
+    });
+
+    // REMOVE A CARD WHEN ITS BUTTON IT CLICKED
+    const cardBtns = document.querySelectorAll(".card__btn");
+
+    cardBtns.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const card = this.closest(".card"); // this refers to the btn that was clocked, closest will find its nearest parent div being .card-container
+        console.log("card", card);
+        if (card) {
+          // if the card exists, then we remove it.
+          card.remove();
+        }
+      });
+    });
   </script>
 </html>

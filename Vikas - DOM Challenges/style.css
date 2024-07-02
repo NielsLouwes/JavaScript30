@@ -161,3 +161,8 @@ ul {
   box-shadow: 0.15em 0.2em hsl(var(--accent) / 0.8),
     -0.2em -0.25em hsl(var(--txt) / 0.8);
 }
+
+.warning {
+  background: yellow;
+  color: red;
+}
