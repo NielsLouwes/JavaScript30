@@ -170,5 +170,15 @@
     cardBtns.forEach((btn) => {
       btn.addEventListener("click", handleClick);
     });
+
+    // INTERMEDIATE CHALLENGES
+    const cardCntr = document.querySelector(".card-container");
+    console.log("cardCntr", cardCntr);
+
+    const addMoreBtn = document.createElement("button");
+    addMoreBtn.innerText = "Add more cards";
+    addMoreBtn.classList.add("btn");
+
+    cardCntr.insertAdjacentElement("afterend", addMoreBtn);
   </script>
 </html>
